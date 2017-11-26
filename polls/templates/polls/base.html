@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls.css' %}" />
+<script src="{% static 'polls/static/style.js' %}"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Home{% endblock %}</title>
+</head>
+
+
+<body>
+<div class="container-fluid w-100 p-0 text-white" style="background:#ceb4a3">
+    <div class="bg-warning-color-dark center-block" style="height:10px"></div>
+    <div class="" style="height:1px"></div>
+    <h1 class="d-inline header p-3"><i class="fa fa-coffee" aria-hidden="true"></i>Love
+    <img width="100rem" src="{% static "image/logo-big-brown.png" %}" alt="My image"/>Home<i class="fa fa-coffee" aria-hidden="true"></i></h1>
+    <i class="pull-right">Where love came true</i>
+    <div class="bg-warning-color-dark">
+        <button class="btn btn-outline-light pull-right">Home</button>
+        <button class="btn btn-outline-light">Calendar</button>
+        <button class="btn btn-outline-light">Recipe</button>
+        <button class="btn btn-outline-light">Loveboard</button>
+    </div>
+    <div class="" style="background:#ceb4a3;height:10px"></div>
+</div>
+{% block content %}
+{% endblock %}
+
+</body>
+
+
+</html>

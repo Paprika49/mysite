@@ -1,0 +1,11 @@
+@import url(https://fonts.googleapis.com/css?family=Spectral+SC);
+
+.header{
+   font-family: 'Spectral SC',serif;
+}
+.bg-warning-color-dark{
+    background-color: #6d4a33
+}
+.warning-color-dark{
+    color: '#FF8800'
+}
