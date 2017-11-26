@@ -75,11 +75,28 @@
   </div>
 </div>
 <script>
-    var yes = 0
-    var no = 0
+    var yes = getCookie('yes');
+    if (yes == ""){
+        yes = 0;
+        setCookie("yes", 0, 365);
+    }else {
+        yes = parseInt(yes);
+    }
+    var no = getCookie('no');
+    if (no == ""){
+        no = 0;
+        setCookie("no", 0, 365);
+    }else {
+        no = parseInt(no);
+    }
+
+    $('#yes').html(yes);
+    $('#no').html(no);
+
     function yesReceived(){
         yes ++;
         $('#yes').html(yes);
+        setCookie("yes", yes, 365);
         if (yes >= 5){
             alert("I win");
         }
@@ -87,10 +104,32 @@
     function noReceived(){
         no ++;
         $('#no').html(no);
+        setCookie("no", no, 365);
         if (no >= 5){
             alert("You lose");
             $('html').html('')
         }
+    }
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
     }
 </script>
 {% block content %}
