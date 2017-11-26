@@ -32,6 +32,10 @@
     </div>
     <div class="" style="background:#ceb4a3;height:10px"></div>
 </div>
+
+<div>
+    You said yes <span class="btn btn-success" id="yes">0</span> times and no <span class="btn btn-danger" id="no">0</span> times.
+</div>
 <div class="modal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -64,13 +68,31 @@
         Will you marry me ?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-        <button type="button" class="btn btn-success" onclick="alert('Victory')">Yes</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="noReceived()">No</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" onclick="yesReceived()">Yes</button>
       </div>
     </div>
   </div>
 </div>
-
+<script>
+    var yes = 0
+    var no = 0
+    function yesReceived(){
+        yes ++;
+        $('#yes').html(yes);
+        if (yes >= 5){
+            alert("I win");
+        }
+    }
+    function noReceived(){
+        no ++;
+        $('#no').html(no);
+        if (no >= 5){
+            alert("You lose");
+            $('html').html('')
+        }
+    }
+</script>
 {% block content %}
 {% endblock %}
 
